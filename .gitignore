@@ -1,0 +1,4 @@
+# Dart/Flutter
+.dart_tool/
+pubspec.lock
+package-lock.json
