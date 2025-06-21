@@ -1,7 +1,5 @@
-// mesh_transport.dart
+// mesh_transport_layer.dart
 // Bluetooth Mesh transport layer encryption (unsegmented, minimal) using PointyCastle
-// Copyright (c) 2025
-
 import 'dart:typed_data';
 import 'package:pointycastle/export.dart';
 

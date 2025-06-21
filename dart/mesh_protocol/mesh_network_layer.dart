@@ -1,7 +1,5 @@
-// mesh_network.dart
+// mesh_network_layer.dart
 // Bluetooth Mesh network layer encryption (minimal, no relay) using PointyCastle
-// Copyright (c) 2025
-
 import 'dart:typed_data';
 import 'package:pointycastle/export.dart';
 
@@ -89,31 +87,25 @@ Uint8List _int32ToBytes(int value) => Uint8List.fromList([
   value & 0xFF,
 ]);
 
-/// Obfuscate the network PDU header using the privacy key (Bluetooth Mesh spec 3.8.6)
 Uint8List obfuscateNetworkHeader({
   required Uint8List header,
   required Uint8List privacyKey,
   required int ivIndex,
   required Uint8List encDstAndPayload,
 }) {
-  // Privacy Random = encDstAndPayload[0..6] (first 7 bytes after header)
-  // Ensure encDstAndPayload is at least 7 bytes, pad with zeros if needed
   final paddedEncDstAndPayload = Uint8List(7);
   for (int i = 0; i < 7; i++) {
     paddedEncDstAndPayload[i] = (i < encDstAndPayload.length) ? encDstAndPayload[i] : 0;
   }
   final privacyRandom = Uint8List(16);
-  // 5 bytes of zeros, then 7 bytes of encDstAndPayload, then 4 bytes of zeros
   for (int i = 0; i < 5; i++) privacyRandom[i] = 0;
   for (int i = 0; i < 7; i++) privacyRandom[5 + i] = paddedEncDstAndPayload[i];
   for (int i = 12; i < 16; i++) privacyRandom[i] = 0;
 
-  // Create PECB = AES-ECB(privacyKey, privacyRandom)
   final cipher = AESEngine()..init(true, KeyParameter(privacyKey));
   final pecb = Uint8List(16);
   cipher.processBlock(privacyRandom, 0, pecb, 0);
 
-  // Obfuscate header fields (bytes 1-6)
   final obfuscated = Uint8List.fromList(header);
   for (int i = 1; i <= 6; i++) {
     obfuscated[i] ^= pecb[i - 1];

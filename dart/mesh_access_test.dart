@@ -4,7 +4,7 @@
 
 import 'dart:typed_data';
 import 'package:test/test.dart';
-import 'mesh_access.dart';
+import 'mesh_protocol/mesh_access_layer.dart';
 
 void main() {
   group('Mesh Access Layer', () {

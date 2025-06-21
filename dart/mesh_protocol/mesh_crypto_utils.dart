@@ -1,3 +1,4 @@
+// This file was moved from the root dart directory to mesh_protocol/ for better modularization.
 // mesh_crypto_utils.dart
 // Bluetooth Mesh cryptographic utilities (K2, s1, etc.) using PointyCastle
 // Copyright (c) 2025
@@ -25,7 +26,7 @@ Uint8List meshAesCmac(Uint8List key, Uint8List input, {String? label}) {
   cmac.update(input, 0, input.length);
   cmac.doFinal(out, 0);
   if (label != null) {
-    print('[36m$label: [0m${out.map((b) => b.toRadixString(16).padLeft(2, '0')).join()}');
+    print('\x1b[36m$label: \x1b[0m${out.map((b) => b.toRadixString(16).padLeft(2, '0')).join()}');
   }
   return out;
 }
