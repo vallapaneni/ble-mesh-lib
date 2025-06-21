@@ -1,2 +1,4 @@
 // mesh_group.dart
-// ...move code from mesh_group.dart here...
+class MeshGroup {
+  MeshGroup();
+}

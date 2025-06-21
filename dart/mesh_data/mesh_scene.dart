@@ -1,2 +1,4 @@
 // mesh_scene.dart
-// ...move code from mesh_scene.dart here...
+class MeshScene {
+  MeshScene();
+}

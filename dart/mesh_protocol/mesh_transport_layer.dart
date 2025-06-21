@@ -2,29 +2,37 @@
 // Bluetooth Mesh transport layer encryption (unsegmented, minimal) using PointyCastle
 import 'dart:typed_data';
 import 'package:pointycastle/export.dart';
+import '../mesh_data/mesh_network.dart';
+import '../mesh_constants.dart';
 
 Future<Uint8List> meshTransportEncrypt({
   required Uint8List modelMessage,
-  required Uint8List appKey,
+  required MeshNetwork network,
+  required int appIdx,
   required int seq,
   required int src,
   required int dst,
   required int ivIndex,
 }) async {
-  final nonce = _buildTransportNonce(seq, src, dst, ivIndex);
+  // Select key: devKey if appIdx==APP_IDX_DEV, else appKey at appIdx
+  final Uint8List key = (appIdx == APP_IDX_DEV)
+      ? network.provisionerDevKey
+      : network.appKeys[appIdx].key;
+  final nonce = _buildTransportNonce(seq, src, dst, ivIndex, appIdx);
   final micSize = 4; // 32-bit MIC for unsegmented
   final cipher = CCMBlockCipher(AESEngine())
     ..init(
       true,
-      AEADParameters(KeyParameter(appKey), micSize * 8, nonce, Uint8List(0)),
+      AEADParameters(KeyParameter(key), micSize * 8, nonce, Uint8List(0)),
     );
   final input = modelMessage;
   final output = cipher.process(input);
   return output;
 }
 
-Uint8List _buildTransportNonce(int seq, int src, int dst, int ivIndex) {
-  final type = 0x01; // 0x01 for application nonce type (FIXME: Take care of decvice nonce based on app Key ID)
+Uint8List _buildTransportNonce(int seq, int src, int dst, int ivIndex, int appIdx) {
+  // 0x01 for application nonce, 0x02 for device nonce
+  final type = (appIdx == APP_IDX_DEV) ? 0x02 : 0x01;
   final aszmic = 0x00; // 0 for unsegmented
   return Uint8List.fromList([
     type,

@@ -2,9 +2,11 @@
 // Bluetooth Mesh network layer encryption (minimal, no relay) using PointyCastle
 import 'dart:typed_data';
 import 'package:pointycastle/export.dart';
+import '../mesh_data/mesh_network.dart';
 
 Future<Uint8List> meshNetworkEncrypt({
   required Uint8List transportPdu,
+  required MeshNetwork network,
   required Uint8List encryptionKey,
   required Uint8List privacyKey,
   required int seq,

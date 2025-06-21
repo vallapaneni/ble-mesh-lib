@@ -4,18 +4,22 @@ import 'dart:typed_data';
 import 'mesh_transport_layer.dart';
 import 'mesh_network_layer.dart';
 import '../mesh_protocol/mesh_crypto_utils.dart';
+import '../mesh_data/mesh_network.dart';
+import '../mesh_constants.dart';
 
 Future<Uint8List> createNetworkPduFromModelMessage({
   required Uint8List modelMessage,
-  required Uint8List appKey,
-  required Uint8List netKey,
+  required MeshNetwork network,
+  required int appIdx,
   required int seq,
   required int src,
   required int dst,
-  required int ivIndex,
   int ttl = 0x01,
 }) async {
-  print('netKey: [36m${netKey.map((b) => b.toRadixString(16).padLeft(2, '0')).join()}[0m');
+  // Use the first NetKey for this example
+  final netKey = network.netKeys.first.key;
+  final ivIndex = network.ivIndex;
+  print('netKey: \x1b[36m${netKey.map((b) => b.toRadixString(16).padLeft(2, '0')).join()}\x1b[0m');
   // Derive K2 keys and NID from NetKey (P = [0x00] for network)
   final k2Result = await k2(netKey, Uint8List.fromList([0x00]));
   final nid = k2Result['nid'] as int;
@@ -28,7 +32,8 @@ Future<Uint8List> createNetworkPduFromModelMessage({
   // Encrypt at transport layer
   final transportPdu = await meshTransportEncrypt(
     modelMessage: modelMessage,
-    appKey: appKey,
+    network: network,
+    appIdx: appIdx,
     seq: seq,
     src: src,
     dst: dst,
@@ -39,6 +44,7 @@ Future<Uint8List> createNetworkPduFromModelMessage({
   // Encrypt at network layer (header + encrypted payload, already obfuscated)
   final networkPdu = await meshNetworkEncrypt(
     transportPdu: transportPdu,
+    network: network,
     encryptionKey: encryptionKey,
     privacyKey: privacyKey,
     seq: seq,

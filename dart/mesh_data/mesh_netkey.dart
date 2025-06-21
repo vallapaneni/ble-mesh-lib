@@ -1,2 +1,9 @@
 // mesh_netkey.dart
-// ...move code from mesh_netkey.dart here...
+import 'dart:typed_data';
+
+class MeshNetKey {
+  final int index;
+  final Uint8List key;
+  final String name;
+  MeshNetKey({required this.index, required this.key, required this.name});
+}
