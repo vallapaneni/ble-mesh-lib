@@ -1,2 +1,8 @@
 // mesh_element.dart
-// ...move code from mesh_element.dart here...
+import 'mesh_model.dart';
+
+class MeshElement {
+  final int location;
+  final List<MeshModel> models;
+  MeshElement({required this.location, required this.models});
+}

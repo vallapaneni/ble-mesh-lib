@@ -1,11 +1,12 @@
 // mesh_node.dart
 import 'dart:typed_data';
+import 'mesh_element.dart';
 
 class MeshNode {
   final String uuid;
   final int unicastAddress;
   final Uint8List devKey;
-  final List elements;
+  final List<MeshElement> elements;
   final String name;
   final MeshNodeFeatures features;
   final DateTime? lastSeen;
