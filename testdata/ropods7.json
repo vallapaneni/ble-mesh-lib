@@ -1,0 +1,180 @@
+{
+  "770ef580b958c5c4dbe08d8634412257": {
+    "ivIndex": 5,
+    "name": "ropods-7",
+    "ivUpdate": 0,
+    "admin": "A5vaZZAkmp5iMJnMxAoh",
+    "type": "open",
+    "appKeys": [
+      {
+        "boundNetKey": 0,
+        "key": "f63512d0c0db609dba79fac8198937df"
+      },
+      {
+        "boundNetKey": 0,
+        "key": "87278f0a218ce692536ffc65e61cdbef"
+      }
+    ],
+    "netKeys": [
+      {
+        "refresh": 0,
+        "key": "770ef580b958c5c4dbe08d8634412257"
+      }
+    ],
+    "uuid": "770ef580b958c5c4dbe08d8634412257",
+    "createdOn": {
+      "_seconds": 1735037682,
+      "_nanoseconds": 845000000
+    },
+    "lowerAddress": 13,
+    "nodes": [
+      {
+        "hwRev": "v0p8",
+        "cfgStatus": true,
+        "fwRev": "0p6p3p1",
+        "name": "SPOT_C88E1098E6CA",
+        "unicast": 1,
+        "key": "0835a87607bfdda68da3b24ad593c74c"
+      },
+      {
+        "hwRev": "v0p8",
+        "cfgStatus": true,
+        "fwRev": "0p6p3p1",
+        "name": "SPOT_DA6A3484550A",
+        "unicast": 3,
+        "key": "47ee0cfd7c42e9ad7d9c1b6d25474e03"
+      },
+      {
+        "hwRev": "v0p8",
+        "cfgStatus": true,
+        "fwRev": "0p6p3p1",
+        "name": "SPOT_E0DB276D634F",
+        "unicast": 5,
+        "key": "71df43b07fc744545fb1789df2e5b1f3"
+      },
+      {
+        "hwRev": "v0p8",
+        "cfgStatus": true,
+        "fwRev": "0p6p3p1",
+        "name": "SPOT_EEDA7935F5A6",
+        "unicast": 7,
+        "key": "813ab0deec18e4177834bb22bf531dc1"
+      },
+      {
+        "hwRev": "v0p8",
+        "cfgStatus": true,
+        "fwRev": "0p6p3p1",
+        "name": "SPOT_E6D54BACE29B",
+        "unicast": 9,
+        "key": "dd0b14f3face6b0b7c4ba2350fe7c4a1"
+      },
+      {
+        "hwRev": "v0p8",
+        "cfgStatus": true,
+        "fwRev": "0p6p3p1",
+        "name": "SPOT_F05A2852BED8",
+        "unicast": 11,
+        "key": "3cc3c8b5afca6515fcff6693d03442f6"
+      }
+    ],
+    "fwRev": "0p6p3p1",
+    "clients": [
+      {
+        "addr": 32519,
+        "uuid": "9A8FE796-3A3C-5CFB-86FD-F88FEBEC3BF0"
+      },
+      {
+        "addr": 32520,
+        "uuid": "A5BC6407-05FD-574B-8122-EDB0D872FBD8"
+      },
+      {
+        "addr": 32534,
+        "uuid": "e4752175ef474e7eac3894a789e0e270"
+      },
+      {
+        "addr": 32518,
+        "uuid": "e7fe393117b04c1ca7a4ec975e8c100a"
+      },
+      {
+        "addr": 32521,
+        "uuid": "{28c7a09e-e39c-46ad-b60e-db18fafea420}"
+      },
+      {
+        "addr": 32517,
+        "uuid": "{314975a8-61d7-455d-ba16-10210826d378}"
+      },
+      {
+        "addr": 32516,
+        "uuid": "{4de174be-8761-4d8a-8741-7bbc81f9e6b3}"
+      },
+      {
+        "addr": 32523,
+        "uuid": "{5606cb1f-4e12-47c2-8192-496e92f1c192}"
+      },
+      {
+        "addr": 32529,
+        "uuid": "{5c0b0ac9-3b90-448f-b8d4-c66728036d45}"
+      },
+      {
+        "addr": 32530,
+        "uuid": "{5d1baa62-117a-49a7-acca-dcdfa72b33ff}"
+      },
+      {
+        "addr": 32527,
+        "uuid": "{79d315e2-268f-44d3-8380-f8afd3ca28d5}"
+      },
+      {
+        "addr": 32524,
+        "uuid": "{86cd3722-814b-4af0-a0db-996d0e9eb8b6}"
+      },
+      {
+        "addr": 32515,
+        "uuid": "{93e23a07-8fd1-441c-a29e-f6b2d4390fff}"
+      },
+      {
+        "addr": 32513,
+        "uuid": "{93fb2fd6-8ca6-4298-9615-f38d6e800a3c}"
+      },
+      {
+        "addr": 32525,
+        "uuid": "{b3498bd1-4783-4883-9853-2b4c2f9a3064}"
+      },
+      {
+        "addr": 32531,
+        "uuid": "{b586dce2-c09a-4a72-b401-980408d10551}"
+      },
+      {
+        "addr": 32528,
+        "uuid": "{ce769425-b0da-4cdb-9f35-d6a29b8055b9}"
+      },
+      {
+        "addr": 32514,
+        "uuid": "{e321e97d-5cd5-425f-93c7-eafd74a65b81}"
+      },
+      {
+        "addr": 32512,
+        "uuid": "{ec03058d-0d93-4c42-9f16-b9b2a8ca70c4}"
+      },
+      {
+        "addr": 32522,
+        "uuid": "{f7e889bd-fb79-4cb9-ad79-3eaa9a4c0f51}"
+      },
+      {
+        "addr": 32532,
+        "uuid": "{f950691f-81cd-4946-b0d8-2f67b53fcd61}"
+      },
+      {
+        "addr": 32526,
+        "uuid": "{f9dd39cf-1f3e-4d8e-acc3-ca2dac294c2b}"
+      },
+      {
+        "addr": 32533,
+        "uuid": "{fe0e0e9d-7253-495e-8176-6464dca5e32e}"
+      }
+    ],
+    "updatedOn": {
+      "_seconds": 1750400961,
+      "_nanoseconds": 691000000
+    }
+  }
+}

@@ -14,7 +14,7 @@ void main() {
   group('Mesh Access Layer', () {
     test('createNetworkPduFromModelMessage produces non-empty output (AppKey)', () async {
       // Load real mesh network from ropods7.json
-      final jsonString = await File('../ropods7.json').readAsString();
+      final jsonString = await File('../testdata/ropods7.json').readAsString();
       final network = MeshNetworkJson.fromJsonString(jsonString);
       final modelMessage = Uint8List.fromList([0x59, 0x00, 0x06, 0x00, 0xe0, 0x01]);
       final src = 32534;
@@ -37,7 +37,7 @@ void main() {
     });
 
     test('createNetworkPduFromModelMessage produces non-empty output (DevKey)', () async {
-      final jsonString = await File('../ropods7.json').readAsString();
+      final jsonString = await File('../testdata/ropods7.json').readAsString();
       final network = MeshNetworkJson.fromJsonString(jsonString);
       final modelMessage = Uint8List.fromList([0x59, 0x00, 0x06, 0x00, 0xe0, 0x01]);
       final src = 32534;
