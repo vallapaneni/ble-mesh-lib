@@ -3,9 +3,8 @@
 import 'dart:typed_data';
 import 'mesh_transport_layer.dart';
 import 'mesh_network_layer.dart';
-import '../mesh_protocol/mesh_crypto_utils.dart';
-import '../mesh_data/mesh_network.dart';
-import '../mesh_constants.dart';
+import 'mesh_crypto_utils.dart';
+import '../data/mesh_network.dart';
 
 Future<Uint8List> createNetworkPduFromModelMessage({
   required Uint8List modelMessage,

@@ -1,0 +1,17 @@
+name: ble_mesh_lib
+version: 0.1.0
+
+description: A comprehensive Bluetooth Mesh library for Dart providing cryptography, protocol layers, and data models.
+
+repository: https://github.com/your-org/mesh-app
+homepage: https://github.com/your-org/mesh-app/tree/main/packages/ble-mesh-lib
+
+environment:
+  sdk: ">=2.19.0 <4.0.0"
+
+dependencies:
+  pointycastle: ^3.9.1
+
+dev_dependencies:
+  test: ^1.24.0
+  lints: ^3.0.0

@@ -2,7 +2,7 @@
 // Bluetooth Mesh transport layer encryption (unsegmented, minimal) using PointyCastle
 import 'dart:typed_data';
 import 'package:pointycastle/export.dart';
-import '../mesh_data/mesh_network.dart';
+import '../data/mesh_network.dart';
 import '../mesh_constants.dart';
 
 Future<Uint8List> meshTransportEncrypt({

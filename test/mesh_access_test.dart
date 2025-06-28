@@ -4,17 +4,16 @@
 
 import 'dart:typed_data';
 import 'package:test/test.dart';
-import 'mesh_protocol/mesh_access_layer.dart';
+import 'package:ble_mesh_lib/src/protocol/mesh_access_layer.dart';
 import 'dart:io';
-import 'dart:convert';
-import 'mesh_data/mesh_network.dart';
-import 'mesh_constants.dart';
+import 'package:ble_mesh_lib/src/data/mesh_network.dart';
+import 'package:ble_mesh_lib/src/mesh_constants.dart';
 
 void main() {
   group('Mesh Access Layer', () {
     test('createNetworkPduFromModelMessage produces non-empty output (AppKey)', () async {
       // Load real mesh network from ropods7.json
-      final jsonString = await File('../testdata/ropods7.json').readAsString();
+      final jsonString = await File('testdata/ropods7.json').readAsString();
       final network = MeshNetworkJson.fromJsonString(jsonString);
       final modelMessage = Uint8List.fromList([0x59, 0x00, 0x06, 0x00, 0xe0, 0x01]);
       final src = 32534;
@@ -37,7 +36,7 @@ void main() {
     });
 
     test('createNetworkPduFromModelMessage produces non-empty output (DevKey)', () async {
-      final jsonString = await File('../testdata/ropods7.json').readAsString();
+      final jsonString = await File('testdata/ropods7.json').readAsString();
       final network = MeshNetworkJson.fromJsonString(jsonString);
       final modelMessage = Uint8List.fromList([0x59, 0x00, 0x06, 0x00, 0xe0, 0x01]);
       final src = 32534;
