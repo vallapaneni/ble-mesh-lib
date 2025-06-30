@@ -80,4 +80,29 @@ extension MeshNetworkJson on MeshNetwork {
     final jsonMap = json.decode(jsonString) as Map<String, dynamic>;
     return fromJson(jsonMap);
   }
+
+  /// Converts the MeshNetwork to a JSON-serializable map for Firestore.
+  Map<String, dynamic> toJson() {
+    return {
+      uuid: {
+        'name': name,
+        'netKeys': netKeys.map((nk) => {
+          'refresh': nk.index,
+          'key': nk.key.map((b) => b.toRadixString(16).padLeft(2, '0')).join(),
+        }).toList(),
+        'appKeys': appKeys.map((ak) => {
+          'key': ak.key.map((b) => b.toRadixString(16).padLeft(2, '0')).join(),
+          'boundNetKey': ak.boundNetKeyIndex,
+        }).toList(),
+        'nodes': nodes.map((n) => {
+          'unicast': n.unicastAddress,
+          'key': n.devKey.map((b) => b.toRadixString(16).padLeft(2, '0')).join(),
+          'name': n.name,
+        }).toList(),
+        'lowerAddress': nextUnicastAddress,
+        'ivIndex': ivIndex,
+        'timestamp': timestamp.toIso8601String(),
+      }
+    };
+  }
 }
